@@ -1,10 +1,50 @@
-'''
-In the scripts/main.py there's the main class Game that creates the window
-and also makes the loop to make the game work
-'''
-
-import scripts.main as main
+# Thi is imported by game.py
+import pygame as pg
 
 
-game = main.Game(400, 400)
+class Game:
+
+	def __init__(self, w, h):
+		"Initialize main surface (screen) and starting the loop"
+		self.w = w
+		self.h = h
+		self.size = w, h
+		self.screen = pg.display.set_mode(self.size)
+		self.loop()
+
+	def close_window(self, event, game):
+		"Close the window with the x button or Esc"
+		quit = event.type == pg.QUIT
+		escape = event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE
+		if quit or escape:
+			game = 0
+		return game
+
+	def loop(self):
+		"The loop that make the game go on"
+		game = 1
+		while game:
+			for event in pg.event.get():
+				game = self.close_window(event, game)
+		pg.quit()
+
+if __name__ == "__main__":
+    game = Game(16*50, 16*50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
