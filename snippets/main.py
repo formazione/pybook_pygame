@@ -1,11 +1,16 @@
-'''
+''' -----------------------------------------------------
 needs the main.py (aka window.py) in the scripts folder
-'''
+----------------------------------------------------- '''
 
-import scripts.main as main
+from game import Game
 
 
-game = main.Game(400, 400)
+game = Game(400, 400)
+
+
+
+
+
 
 
 
